@@ -12,6 +12,9 @@
   <img src="https://img.shields.io/badge/License-MIT-green" alt="MIT"/>
 </p>
 
+> ✅ **Verified end-to-end** on Windows with local Ollama (`llama3.1`, `num_ctx=8192`) — every command below is from a real run.
+
+
 **SaleScout** is a multi-agent sales research crew. Give it a company domain and
 three specialized agents hand work to each other — crawling the company's site,
 scoring the opportunity, and drafting personalized outreach — until a
@@ -91,6 +94,8 @@ Done. fit_score=82 → briefs/acme_com.md
 ```
 
 See a full example output: [`examples/sample_brief.md`](./examples/sample_brief.md)
+
+Or a **real, unedited run** against a live site: [`examples/real_run_ollama_com.md`](./examples/real_run_ollama_com.md)
 
 ## Configuration
 

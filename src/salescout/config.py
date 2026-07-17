@@ -36,6 +36,7 @@ def get_llm(temperature: float = 0.2):
     return ChatOllama(
         model=os.getenv("OLLAMA_MODEL", DEFAULT_OLLAMA_MODEL),
         temperature=temperature,
+        num_ctx=int(os.getenv("OLLAMA_NUM_CTX", "8192")),
     )
 
 
