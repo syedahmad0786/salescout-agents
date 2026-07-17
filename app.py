@@ -39,7 +39,7 @@ if st.button("Run the crew", type="primary", disabled=not domain_input):
             for node, update in chunk.items():
                 for event in update.get("trace", []):
                     st.write(
-                        f"\`{event['agent']}\` **{event['action']}** "
+                        f"`{event['agent']}` **{event['action']}** "
                         f"{str(event.get('detail', ''))[:90]}"
                     )
                 final_state.update(update)
