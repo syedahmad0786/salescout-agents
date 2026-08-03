@@ -3,7 +3,9 @@
 A four-agent account-research council that qualifies an opportunity and writes evidence-linked outreach drafts without sending email or writing to a CRM.
 
 **Portfolio role:** Agentic AI & LLM Systems Specialist
-**Status:** LangGraph, MCP, and ten-account evaluation complete; Vercel preview pending
+**Status:** public demo verified on Vercel on 2026-08-03
+**Live demo:** https://revenue-intelligence-council.vercel.app
+**Verified runtime commit:** `dd8b15194abd085e72c78660f7dfff015fae13b1`
 **Safety:** draft-only, replay-first, no send or CRM tool exists
 
 ## What this proves

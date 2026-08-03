@@ -14,4 +14,11 @@
 | MCP email or CRM tools | 0 | Pass |
 | Mutations after approval | 0 | Pass |
 
-Preview Postman, browser, and deployment evidence is appended only after the exact Vercel preview passes.
+## Public deployment verification
+
+- Live URL: https://revenue-intelligence-council.vercel.app
+- Runtime commit: `dd8b15194abd085e72c78660f7dfff015fae13b1`
+- GitHub CI: pass
+- Postman CLI against the commit-specific preview: 5 requests and 14 assertions, 0 failures
+- Browser journeys: 1280×800 and 390×844, 0 console errors and 0 horizontal overflow
+- Release: the tested preview artifact was promoted without rebuilding
