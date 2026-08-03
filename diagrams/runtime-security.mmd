@@ -1,0 +1,10 @@
+flowchart LR
+  A[Caller] --> B[REST rate limit or MCP session]
+  B --> C[Pydantic scenario contract]
+  C --> D[Replay only provider gate]
+  D --> E[Evidence content hashes]
+  E --> F[LangGraph execution]
+  F --> G[Draft state]
+  G --> H[Human decision]
+  H --> I[Zero email sends]
+  H --> J[Zero CRM writes]

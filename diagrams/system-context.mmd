@@ -1,0 +1,10 @@
+flowchart LR
+  A[Account owner] --> B[Web or REST API]
+  C[MCP client] --> D[Read only MCP server]
+  B --> E[LangGraph council]
+  D --> E
+  F[Synthetic account packet] --> E
+  E --> G[Evidence linked draft]
+  G --> H[Human review state]
+  H --> I[Manual use only]
+  J[Email and CRM] -. no tools exposed .-> I
