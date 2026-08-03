@@ -1,8 +1,9 @@
 """LLM provider factory — free by default.
 
 Priority:
-1. If ``GROQ_API_KEY`` is set   -> Groq (free tier, fast Llama 3.3 70B)
-2. Otherwise                    -> Ollama running locally (100% free, offline)
+1. If ``OPENROUTER_API_KEY`` is set -> OpenRouter's dynamic free router
+2. If ``GROQ_API_KEY`` is set       -> Groq free tier
+3. Otherwise                        -> Ollama running locally
 
 No paid API is ever required.
 """
@@ -23,6 +24,15 @@ PAGE_CHAR_BUDGET = int(os.getenv("SALESCOUT_PAGE_CHARS", "6000"))
 
 def get_llm(temperature: float = 0.2):
     """Return a chat model instance for whichever free provider is available."""
+    if os.getenv("OPENROUTER_API_KEY"):
+        from langchain_openai import ChatOpenAI
+
+        return ChatOpenAI(
+            api_key=os.environ["OPENROUTER_API_KEY"],
+            base_url="https://openrouter.ai/api/v1",
+            model=os.getenv("OPENROUTER_MODEL", "openrouter/free"),
+            temperature=temperature,
+        )
     if os.getenv("GROQ_API_KEY"):
         from langchain_groq import ChatGroq
 
@@ -42,6 +52,8 @@ def get_llm(temperature: float = 0.2):
 
 def provider_name() -> str:
     """Human-readable name of the active provider (for the UI/trace)."""
+    if os.getenv("OPENROUTER_API_KEY"):
+        return f"OpenRouter · {os.getenv('OPENROUTER_MODEL', 'openrouter/free')}"
     if os.getenv("GROQ_API_KEY"):
         return f"Groq · {os.getenv('GROQ_MODEL', DEFAULT_GROQ_MODEL)}"
     return f"Ollama · {os.getenv('OLLAMA_MODEL', DEFAULT_OLLAMA_MODEL)}"
