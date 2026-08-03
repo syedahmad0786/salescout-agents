@@ -23,8 +23,5 @@ dependencies = [
 [tool.uv]
 package = false
 
-[tool.vercel]
-entrypoint = "server.py"
-
 [dependency-groups]
 dev = ["playwright>=1.58,<2"]
